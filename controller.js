@@ -1,7 +1,5 @@
 'use strict';
 
-import { response } from "express";
-
 var response = require('./res');
 var connection = require('./koneksi');
 
