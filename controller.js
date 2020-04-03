@@ -49,3 +49,33 @@ exports.tambahMahasiswa = function(req, res){
         }
     });
 };
+
+// mengubah data berdasarkan id
+exports.ubahmahasiswa = function(req , res){
+    var id = req.body.id;
+    var nim = req.body.nim;
+    var nama = req.body.nama;
+    var jurusan = req.body.jurusan;
+
+    connection.query('UPDATE mahasiswa SET nim=?, nama=?, jurusan=? WHERE id=?', [nim, nama , jurusan,id],
+        function(error, rows, fileds){
+            if(error){
+                console.log(error);
+            }else{
+                response.ok("Berhasil Ubah Data", res)
+            }
+        });
+    };
+
+    //menghapus data mahasiswa
+exports.hapusmahasiswa = function(req, res){
+    var id = req.body.id;
+    connection.query('DELETE FROM mahasiswa WHERE id=?', [id],
+    function(error,rows, fileds){
+        if(error){
+            connection.log(error);
+        }else{
+            response.ok("Berhasil Menghapus Data", res)
+        }
+    });
+    };
