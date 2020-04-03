@@ -8,7 +8,7 @@ const coon = mysql.createConnection({
     database:'dbrestapi'
 });
 
-conn.connet((err)=>{
+coon.connect((err)=>{
     if(err) throw err;
     console.log('mysql terkoneksi');
 });
